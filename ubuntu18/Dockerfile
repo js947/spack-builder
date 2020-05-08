@@ -32,11 +32,10 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV SPACK_ROOT=/opt/spack
 
-RUN ln -s /usr/share/lmod/lmod/init/bash /etc/profile.d/98-lmod.sh
-RUN ln -s $SPACK_ROOT/share/spack/setup-env.sh /etc/profile.d/99-spack.sh
-
 RUN git clone https://github.com/spack/spack $SPACK_ROOT
 #ADD compilers.yaml /root/.spack
+
+ENV PATH=$SPACK_ROOT/bin:$PATH
 
 WORKDIR /root
 SHELL ["/bin/bash", "-l", "-c"]
