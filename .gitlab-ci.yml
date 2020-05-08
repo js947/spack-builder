@@ -38,4 +38,4 @@ amazonlinux:
 
 trigger:
   stage: trigger
-  trigger: js947/fenics-mirror
+  trigger: js947/fenics-build-mirror
