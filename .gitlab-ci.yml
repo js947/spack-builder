@@ -3,6 +3,8 @@ before_script:
   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
 centos7:
+  tags:
+    - docker
   variables:
     tag: centos7
   script: &build
