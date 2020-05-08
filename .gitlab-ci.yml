@@ -14,3 +14,10 @@ centos7:
   script: &build
     - "docker build --pull -t $CI_REGISTRY/js947/spack-builder:$tag $tag"
     - "docker push $CI_REGISTRY/js947/spack-builder:$tag"
+
+ubuntu18:
+  tags:
+    - docker
+  variables:
+    tag: ubuntu18
+  script: *build
