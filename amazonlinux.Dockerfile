@@ -14,7 +14,7 @@ RUN pip install boto3
 ENV SPACK_ROOT=/opt/spack
 
 RUN git clone https://github.com/spack/spack $SPACK_ROOT
-#ADD compilers.yaml ${SPACK_ROOT}/etc/spack
+ADD compilers.yaml ${SPACK_ROOT}/etc/spack
 
 ENV PATH=$SPACK_ROOT/bin:$PATH
 
