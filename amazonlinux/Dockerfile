@@ -13,13 +13,8 @@ RUN pip install boto3
 
 ENV SPACK_ROOT=/opt/spack
 
-RUN ( echo ". /usr/share/lmod/lmod/init/bash"                       \
- &&   echo ". \$SPACK_ROOT/share/spack/setup-env.sh"                \
- &&   echo "if [ \"\$CURRENTLY_BUILDING_DOCKER_IMAGE\" '!=' '1' ]"  \
- &&   echo "then"                                                   \
- &&   echo "  . \$SPACK_ROOT/share/spack/spack-completion.bash"     \
- &&   echo "fi"                                                   ) \
-       >> /etc/profile.d/spack.sh
+RUN ln -s /usr/share/lmod/lmod/init/bash /etc/profile.d/98-lmod.sh
+RUN ln -s $SPACK_ROOT/share/spack/setup-env.sh /etc/profile.d/99-spack.sh
 
 RUN git clone https://github.com/spack/spack $SPACK_ROOT
 #ADD compilers.yaml ${SPACK_ROOT}/etc/spack
