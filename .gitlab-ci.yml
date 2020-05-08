@@ -21,3 +21,10 @@ ubuntu18:
   variables:
     tag: ubuntu18
   script: *build
+
+amazonlinux:
+  tags:
+    - docker
+  variables:
+    tag: ubuntu18
+  script: *build
