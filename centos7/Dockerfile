@@ -29,4 +29,4 @@ ADD compilers.yaml ${SPACK_ROOT}/etc/spack
 WORKDIR /root
 SHELL ["/bin/bash", "-l", "-c"]
 
-CMD ["bash"]
+CMD ["bash", "-l"]

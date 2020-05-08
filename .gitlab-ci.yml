@@ -26,5 +26,5 @@ amazonlinux:
   tags:
     - docker
   variables:
-    tag: ubuntu18
+    tag: amazonlinux
   script: *build
