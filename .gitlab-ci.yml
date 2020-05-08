@@ -1,0 +1,10 @@
+before_script:
+  - docker info
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+centos7:
+  variables:
+    tag: centos7
+  script: &build
+    - "docker build -t $CI_REGISTRY/js947/spack-builder:$tag $tag"
+    - "docker push $CI_REGISTRY/js947/spack-builder:$tag"
