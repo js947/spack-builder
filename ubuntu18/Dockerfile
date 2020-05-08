@@ -33,7 +33,7 @@ ENV LC_ALL en_US.UTF-8
 ENV SPACK_ROOT=/opt/spack
 
 RUN git clone https://github.com/spack/spack $SPACK_ROOT
-#ADD compilers.yaml /root/.spack
+ADD compilers.yaml /root/.spack
 
 ENV PATH=$SPACK_ROOT/bin:$PATH
 

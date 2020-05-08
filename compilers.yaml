@@ -1,5 +1,19 @@
 compilers:
 - compiler:
+    spec: gcc@7
+    paths:
+        cc: /usr/bin/gcc-7
+        cxx: /usr/bin/g++-7
+        f77: /usr/bin/gfortran-7
+        fc: /usr/bin/gfortran-7
+    flags: {}
+    operating_system: ubuntu18.04
+    target: x86_64
+    modules: []
+    environment:
+        unset: []
+    extra_rpaths: []
+- compiler:
     paths:
         cc: /bin/gcc
         cxx: /bin/g++
@@ -51,3 +65,17 @@ compilers:
     extra_rpaths: []
     flags: {}
     spec: gcc@9
+- compiler:
+    paths:
+        cc: /bin/gcc
+        cxx: /bin/g++
+        f77: /bin/gfortran
+        fc: /bin/gfortran
+    operating_system: amzn2
+    target: x86_64
+    modules: []
+    environment:
+        unset: []
+    extra_rpaths: []
+    flags: {}
+    spec: gcc@7
