@@ -6,7 +6,12 @@ image: docker:19.03.8
 services:
   - docker:19.03.8-dind
 
+stages:
+  - build
+  - trigger
+
 centos7:
+  stage: build
   tags:
     - docker
   variables:
@@ -16,6 +21,7 @@ centos7:
     - "docker push $CI_REGISTRY/js947/spack-builder:$tag"
 
 ubuntu18:
+  stage: build
   tags:
     - docker
   variables:
@@ -23,8 +29,12 @@ ubuntu18:
   script: *build
 
 amazonlinux:
+  stage: build
   tags:
     - docker
   variables:
     tag: amazonlinux
   script: *build
+
+trigger:
+  trigger: js947/fenics-mirror
