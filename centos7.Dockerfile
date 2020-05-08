@@ -17,10 +17,12 @@ ENV SPACK_ROOT=/opt/spack
 
 RUN git clone https://github.com/spack/spack $SPACK_ROOT
 ADD compilers.yaml ${SPACK_ROOT}/etc/spack
+ADD public.key ${SPACK_ROOT}/var/spack/gpg/
 
 ENV PATH=$SPACK_ROOT/bin:$PATH
 
 WORKDIR /root
 SHELL ["/bin/bash", "-l", "-c"]
 
+RUN spack gpg init
 CMD ["bash", "-l"]
