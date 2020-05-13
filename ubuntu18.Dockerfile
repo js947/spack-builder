@@ -20,6 +20,7 @@ RUN apt-get -yqq update                           \
         openssh-server                            \
         python3                                   \
         python3-pip                               \
+        python3-setuptools python3-wheel          \
         tcl                                       \
         unzip                                     \
  && rm -rf /var/lib/apt/lists/*
