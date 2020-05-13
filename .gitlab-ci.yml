@@ -28,12 +28,20 @@ ubuntu18:
     tag: ubuntu18
   script: *build
 
-amazonlinux:
+amzn1:
   stage: build
   tags:
     - docker
   variables:
-    tag: amazonlinux
+    tag: amzn1
+  script: *build
+
+amzn2:
+  stage: build
+  tags:
+    - docker
+  variables:
+    tag: amzn2
   script: *build
 
 trigger:
