@@ -5,11 +5,11 @@ RUN yum groupinstall -y "Development Tools" \
         curl           findutils gcc-c++    gcc               \
         gcc-gfortran   git       gnupg2     hostname          \
         iproute        Lmod      make       patch             \
-        openssh-server python    python-pip tcl               \
+        openssh-server python    python36-pip tcl               \
         unzip          which                                  \
  && rm -rf /var/cache/yum                                     \
  && yum clean all
-RUN pip install boto3
+RUN pip-3.6 install boto3
 
 ENV SPACK_ROOT=/opt/spack
 
