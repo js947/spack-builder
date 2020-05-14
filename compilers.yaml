@@ -32,7 +32,7 @@ compilers:
         cxx: /bin/g++48
         f77: /bin/gfortran48
         fc: /bin/gfortran48
-    operating_system: amzn1
+    operating_system: amzn2018
     target: x86_64
     modules: []
     environment:
@@ -42,10 +42,10 @@ compilers:
     spec: gcc@4.8.5
 - compiler:
     paths:
-        cc: /bin/gcc48
-        cxx: /bin/g++48
-        f77: /bin/gfortran48
-        fc: /bin/gfortran48
+        cc: /bin/gcc
+        cxx: /bin/g++
+        f77: /bin/gfortran
+        fc: /bin/gfortran
     operating_system: amzn2
     target: x86_64
     modules: []
@@ -53,4 +53,4 @@ compilers:
         unset: []
     extra_rpaths: []
     flags: {}
-    spec: gcc@4.8.5
+    spec: gcc@7.3.1
