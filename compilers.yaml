@@ -28,10 +28,10 @@ compilers:
     spec: gcc@4.8.5
 - compiler:
     paths:
-        cc: /bin/gcc48
-        cxx: /bin/g++48
-        f77: /bin/gfortran48
-        fc: /bin/gfortran48
+        cc: /usr/bin/gcc48
+        cxx: /usr/bin/g++48
+        f77: /usr/bin/gfortran48
+        fc: /usr/bin/gfortran48
     operating_system: amzn2018
     target: x86_64
     modules: []
