@@ -44,3 +44,5 @@ SHELL ["/bin/bash", "-l", "-c"]
 
 RUN spack gpg init
 CMD ["bash", "-l"]
+
+RUN spack mirror add js947 s3://js947-spack-mirror
