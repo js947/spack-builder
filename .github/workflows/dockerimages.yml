@@ -3,7 +3,6 @@ name: Docker Image CI
 on: [push, pull_request]
 
 jobs:
-
   centos7:
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +29,46 @@ jobs:
         dockerfile: centos8.Dockerfile
         tag_with_ref: true
 
-  ubuntu18:
+  scientific7:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}/scientific7
+        dockerfile: scientific7.Dockerfile
+        tag_with_ref: true
+
+  amzn1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}/amzn1
+        dockerfile: amzn1.Dockerfile
+        tag_with_ref: true
+        
+  amzn2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}/amzn2
+        dockerfile: amzn2.Dockerfile
+        tag_with_ref: true
+        
+  ubuntu18:    
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
