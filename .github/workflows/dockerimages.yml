@@ -43,8 +43,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: ${{ github.repository }}/scientific7
+        cache_froms: ${{ github.repository }}/scientific7:latest
         dockerfile: scientific7.Dockerfile
         tag_with_ref: true
+        always_pull: true
 
   amzn1:
     runs-on: ubuntu-latest
@@ -56,9 +58,11 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: ${{ github.repository }}/amzn1
+        cache_froms: ${{ github.repository }}/scientific7:latest
         dockerfile: amzn1.Dockerfile
         tag_with_ref: true
-        
+        always_pull: true
+
   amzn2:
     runs-on: ubuntu-latest
     steps:
@@ -69,10 +73,12 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: ${{ github.repository }}/amzn2
+        cache_froms: ${{ github.repository }}/amzn2:latest
         dockerfile: amzn2.Dockerfile
         tag_with_ref: true
-        
-  ubuntu18:    
+        always_pull: true
+
+  ubuntu18:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -82,8 +88,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: ${{ github.repository }}/ubuntu18
+        cache_froms: ${{ github.repository }}/ubuntu18:latest
         dockerfile: ubuntu18.Dockerfile
         tag_with_ref: true
+        always_pull: true
 
   ubuntu20:
     runs-on: ubuntu-latest
@@ -95,5 +103,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: ${{ github.repository }}/ubuntu20
+        cache_froms: ${{ github.repository }}/ubuntu20:latest
         dockerfile: ubuntu20.Dockerfile
         tag_with_ref: true
+        always_pull: true
