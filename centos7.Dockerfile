@@ -1,17 +1,12 @@
 FROM centos:7
 
-RUN yum install -y epel-release centos-release-scl \
- && yum --enablerepo epel groupinstall -y "Development Tools" \
- && yum --enablerepo epel install -y                          \
-        curl           findutils gcc-c++    gcc               \
-        gcc-gfortran   git       gnupg2     hostname          \
-        iproute        Lmod      make       patch             \
-        openssh-server python    python-pip tcl               \
-        unzip          which                                  \
+RUN yum install -y centos-release-scl \
+ && yum install -y \
+        gcc-{c++,gfortran} make bzip2 python3-pip git-core \
         devtoolset-\?-gcc{,-c++,-gfortran} \
- && rm -rf /var/cache/yum                                     \
+ && rm -rf /var/cache/yum \
  && yum clean all
-RUN pip install boto3
+RUN pip3 install boto3
 
 ENV SPACK_ROOT=/opt/spack
 
