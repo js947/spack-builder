@@ -80,3 +80,16 @@ jobs:
         repository: ${{ github.repository }}/ubuntu18
         dockerfile: ubuntu18.Dockerfile
         tag_with_ref: true
+
+  ubuntu20:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}/ubuntu20
+        dockerfile: ubuntu20.Dockerfile
+        tag_with_ref: true
