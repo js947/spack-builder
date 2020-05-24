@@ -13,13 +13,25 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file centos7.Dockerfile --tag centos7:$GITHUB_REF
-    - name: Login to GitHub Docker registry
-      run: echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u js947 --password-stdin
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}/centos7
+        dockerfile: centos7.Dockerfile
+        tag_with_ref: true
 
   centos8:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file centos8.Dockerfile --tag centos8:$GITHUB_REF
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}/centos8
+        dockerfile: centos8.Dockerfile
+        tag_with_ref: true
