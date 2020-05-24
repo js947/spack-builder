@@ -1,16 +1,9 @@
 FROM scientificlinux/sl:7
 
-RUN yum install -y epel-release \
- && yum --enablerepo epel groupinstall -y "Development Tools" \
- && yum --enablerepo epel install -y                          \
-        curl           findutils gcc-c++    gcc               \
-        gcc-gfortran   git       gnupg2     hostname          \
-        iproute        Lmod      make       patch             \
-        openssh-server python    python-pip tcl               \
-        unzip          which                                  \
- && rm -rf /var/cache/yum                                     \
+RUN yum install -y gcc-{c++,gfortran} make bzip2 python3-pip git-core \
+ && rm -rf /var/cache/yum \
  && yum clean all
-RUN pip install boto3
+RUN pip3 install boto3
 
 ENV SPACK_ROOT=/opt/spack
 
