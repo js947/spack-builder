@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build centos7:
+  centos7:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
