@@ -16,6 +16,7 @@ jobs:
         cache_froms: ${{ github.repository }}/centos7:latest
         dockerfile: centos7.Dockerfile
         tag_with_ref: true
+        always_pull: true
 
   centos8:
     runs-on: ubuntu-latest
@@ -30,6 +31,7 @@ jobs:
         cache_froms: ${{ github.repository }}/centos8:latest
         dockerfile: centos8.Dockerfile
         tag_with_ref: true
+        always_pull: true
 
   scientific7:
     runs-on: ubuntu-latest
