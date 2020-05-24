@@ -13,6 +13,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: ${{ github.repository }}/centos7
+        cache_froms: ${{ github.repository }}/centos7
         dockerfile: centos7.Dockerfile
         tag_with_ref: true
 
@@ -26,6 +27,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: ${{ github.repository }}/centos8
+        cache_froms: ${{ github.repository }}/centos8
         dockerfile: centos8.Dockerfile
         tag_with_ref: true
 
