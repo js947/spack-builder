@@ -1,7 +1,11 @@
 FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get -yqq update                           \
+RUN apt-get -yqq update \
+ && apt-get -yqq install --no-install-recommends  \
+        software-properties-common \
+ && add-apt-repository ppa:ubuntu-toolchain-r/test \
+ && apt-get -yqq update \
  && apt-get -yqq install --no-install-recommends  \
         build-essential                           \
         ca-certificates                           \
@@ -23,6 +27,10 @@ RUN apt-get -yqq update                           \
         python3-setuptools python3-wheel          \
         tcl                                       \
         unzip                                     \
+        software-properties-common                \
+        gcc-8 \
+        gcc-9 \
+        gcc-10 \
  && rm -rf /var/lib/apt/lists/*
 RUN locale-gen en_US.UTF-8
 RUN pip3 install boto3
@@ -44,20 +52,3 @@ SHELL ["/bin/bash", "-l", "-c"]
 
 RUN spack gpg init
 CMD ["bash", "-l"]
-
-RUN spack mirror add --scope=site js947 http://js947-spack-mirror.s3-website-eu-west-1.amazonaws.com
-RUN spack mirror list
-
-RUN spack install gcc@5.5.0 target=x86_64
-RUN spack install gcc@6.5.0 target=x86_64
-RUN spack install gcc@7.4.0 target=x86_64
-RUN spack install gcc@8.4.0 target=x86_64
-RUN spack install gcc@9.3.0 target=x86_64
-RUN spack install gcc@10.1.0 target=x86_64
-
-RUN eval `spack load --sh gcc@5` && spack compiler add --scope site
-RUN eval `spack load --sh gcc@6` && spack compiler add --scope site
-RUN eval `spack load --sh gcc@7` && spack compiler add --scope site
-RUN eval `spack load --sh gcc@8` && spack compiler add --scope site
-RUN eval `spack load --sh gcc@9` && spack compiler add --scope site
-RUN eval `spack load --sh gcc@10` && spack compiler add --scope site

@@ -1,7 +1,8 @@
-FROM amazonlinux:2
+FROM scientificlinux/sl:7
 
-RUN yum groupinstall -y "Development Tools" \
- && yum install -y                          \
+RUN yum install -y epel-release \
+ && yum --enablerepo epel groupinstall -y "Development Tools" \
+ && yum --enablerepo epel install -y                          \
         curl           findutils gcc-c++    gcc               \
         gcc-gfortran   git       gnupg2     hostname          \
         iproute        Lmod      make       patch             \
