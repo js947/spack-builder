@@ -13,11 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file centos7.Dockerfile --tag spack-builder:centos7
+      run: docker build . --file centos7.Dockerfile --tag centos7:$GITHUB_REF
+    - name: Login to GitHub Docker registry
+      run: echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u js947 --password-stdin
 
   centos8:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file centos8.Dockerfile --tag spack-builder:centos8
+      run: docker build . --file centos8.Dockerfile --tag centos8:$GITHUB_REF
