@@ -29,3 +29,16 @@ jobs:
         repository: ${{ github.repository }}/centos8
         dockerfile: centos8.Dockerfile
         tag_with_ref: true
+
+  ubuntu18:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}/ubuntu18
+        dockerfile: ubuntu18.Dockerfile
+        tag_with_ref: true
